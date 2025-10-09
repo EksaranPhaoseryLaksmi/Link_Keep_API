@@ -1,0 +1,14 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/link_keep?useSSL=false&serverTimezone=UTC
+    username: root
+    password: $$092023Tax
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.example.mywebapp.entity
+  mapper-locations: classpath:mapper/*.xml
