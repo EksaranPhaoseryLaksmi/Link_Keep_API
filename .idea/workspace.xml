@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2616b8ef-b80b-4559-9c3f-cfc00dac964b" name="Changes" comment="Initial Project and Add API: User (Login,Signup,ChangePassword) Category(Add,Insert,List,Update)" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2yBxdEUsixHWNND6AxSVaZ6IfBD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Unnamed.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "Maven.mywebapp [clean].executor": "Run",
+    "Maven.mywebapp [compile].executor": "Run",
+    "Maven.mywebapp [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "Spring Boot.MyWebAppApplication.executor": "Run",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Projects/API/link-keep-app-jwt",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\Downloads\Compressed\mywebapp-jwt\src\main\resources\mapper" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.mywebapp.service" />
+      <recent name="com.example.mywebapp.entity" />
+      <recent name="com.example.mywebapp.controller" />
+      <recent name="com.example.mywebapp.mapper" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.mywebapp.MyWebAppApplication" />
+      <module name="linkkeppapp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="MyWebAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="mywebapp-jwt" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.mywebapp.MyWebAppApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.mywebapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+    </list>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2616b8ef-b80b-4559-9c3f-cfc00dac964b" name="Changes" comment="" />
+      <created>1749321852405</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749321852405</updated>
+      <workItem from="1749321853584" duration="4625000" />
+      <workItem from="1749482257000" duration="177000" />
+      <workItem from="1749482527814" duration="18000" />
+      <workItem from="1749484545950" duration="118000" />
+      <workItem from="1750934853676" duration="2401000" />
+      <workItem from="1751017404093" duration="213000" />
+      <workItem from="1751024389975" duration="2678000" />
+      <workItem from="1751083939775" duration="546000" />
+      <workItem from="1751289626796" duration="5577000" />
+      <workItem from="1751307494799" duration="647000" />
+      <workItem from="1751361430966" duration="1984000" />
+      <workItem from="1751387261642" duration="10470000" />
+      <workItem from="1751436948181" duration="2485000" />
+      <workItem from="1751445995604" duration="2785000" />
+      <workItem from="1751488699013" duration="3174000" />
+      <workItem from="1751494194812" duration="680000" />
+      <workItem from="1751528174350" duration="6377000" />
+      <workItem from="1751552094625" duration="9991000" />
+      <workItem from="1751566883402" duration="18000" />
+      <workItem from="1751649683266" duration="9269000" />
+      <workItem from="1751687765655" duration="2275000" />
+      <workItem from="1751705965645" duration="976000" />
+      <workItem from="1751717328380" duration="1566000" />
+      <workItem from="1751822501830" duration="7116000" />
+      <workItem from="1751908369583" duration="9000" />
+      <workItem from="1751920033904" duration="853000" />
+      <workItem from="1751983949348" duration="639000" />
+      <workItem from="1751996201439" duration="7285000" />
+      <workItem from="1752083750656" duration="20000" />
+      <workItem from="1752083790686" duration="17000" />
+      <workItem from="1752084793061" duration="2000" />
+      <workItem from="1752084804711" duration="2000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial Project and Add API: User (Login,Signup,ChangePassword) Category(Add,Insert,List,Update)">
+      <option name="closed" value="true" />
+      <created>1760030034273</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760030034273</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Project and Add API: User (Login,Signup,ChangePassword) Category(Add,Insert,List,Update)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Project and Add API: User (Login,Signup,ChangePassword) Category(Add,Insert,List,Update)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
