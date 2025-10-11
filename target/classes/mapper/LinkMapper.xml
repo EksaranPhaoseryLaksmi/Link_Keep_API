@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mywebapp.mapper.LinkMapper">
+    <select id="findAll" resultType="com.example.mywebapp.entity.Link">
+        select * from link_keep.link_keep where is_active='1' order by id desc;
+    </select>
+    <insert id="insert">
+        INSERT INTO link_keep.link_keep
+        (title,url,describtion,category_id,created_date,created_by)
+        VALUES
+        (#{title},
+        #{url},
+        #{description},
+        #{category_id},
+        current_timestamp(),
+        #{created_by});
+    </insert>
+    <update id="update">
+        UPDATE link_keep.link_keep
+        SET
+        title = #{title},
+        url = #{url},
+        describtion = #{description},
+        category_id = #{category_id},
+        status = #{status},
+        shared = #{shared},
+        updated_date = current_timestamp(),
+        updated_by = #{updated_by},
+        is_active = #{is_active}
+        WHERE id = #{id};
+    </update>
+</mapper>

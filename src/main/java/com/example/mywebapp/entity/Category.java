@@ -7,4 +7,5 @@ public class Category {
     private String describtion;
     private String created_by;
     private String created_date;
+    private String url;
 }
