@@ -12,4 +12,5 @@ public class LinkUpdate {
     private String status;
     private String is_active;
     private String shared;
+    private String favourite;
 }

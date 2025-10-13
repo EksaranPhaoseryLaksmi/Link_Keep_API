@@ -29,7 +29,8 @@
         shared = #{shared},
         updated_date = current_timestamp(),
         updated_by = #{updated_by},
-        is_active = #{is_active}
+        is_active = #{is_active},
+        is_favorite=#{favourite}
         WHERE id = #{id};
     </update>
 </mapper>

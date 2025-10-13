@@ -12,4 +12,6 @@ public class Link {
     private String status;
     private String shared;
     private String created_date;
+    private String is_active;
+    private String is_favorite;
 }

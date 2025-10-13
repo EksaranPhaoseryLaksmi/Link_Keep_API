@@ -9,14 +9,15 @@
     </select>
     <insert id="insert">
         INSERT INTO link_keep.link_keep
-        (title,url,describtion,category_id,created_date,created_by)
+        (title,url,describtion,category_id,created_date,created_by,status)
         VALUES
         (#{title},
         #{url},
         #{description},
         #{category_id},
         current_timestamp(),
-        #{created_by});
+        #{created_by},
+        #{status});
     </insert>
     <update id="update">
         UPDATE link_keep.link_keep
@@ -29,7 +30,8 @@
         shared = #{shared},
         updated_date = current_timestamp(),
         updated_by = #{updated_by},
-        is_active = #{is_active}
+        is_active = #{is_active},
+        is_favorite=#{favourite}
         WHERE id = #{id};
     </update>
 </mapper>
