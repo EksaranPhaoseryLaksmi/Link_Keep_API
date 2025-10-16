@@ -5,18 +5,19 @@
 
 <mapper namespace="com.example.mywebapp.mapper.LinkMapper">
     <select id="findAll" resultType="com.example.mywebapp.entity.Link">
-        select * from link_keep.link_keep where is_active='1' order by id desc;
+        select * from link_keep.link_keep where is_active='1' and created_by=#{id} order by id desc;
     </select>
     <insert id="insert">
         INSERT INTO link_keep.link_keep
-        (title,url,describtion,category_id,created_date,created_by)
+        (title,url,describtion,category_id,created_date,created_by,status)
         VALUES
         (#{title},
         #{url},
         #{description},
         #{category_id},
         current_timestamp(),
-        #{created_by});
+        #{created_by},
+        #{status});
     </insert>
     <update id="update">
         UPDATE link_keep.link_keep

@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.mywebapp.mapper.CategoryMapper">
     <select id="findAll" resultType="com.example.mywebapp.entity.Category">
-        select * from link_keep.category where is_active='1' order by id desc;
+        select * from link_keep.category where is_active='1' and created_by = #{id} order by id desc;
     </select>
     <insert id="insert">
         INSERT INTO link_keep.category

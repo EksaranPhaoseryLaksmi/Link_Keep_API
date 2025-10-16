@@ -16,9 +16,9 @@ public class LinkController {
         this.linkService = linkService;
     }
 
-    @GetMapping
-    public List<Link> getAll() {
-        return linkService.getAllLinks();
+    @GetMapping("/{id}")
+    public List<Link> getAll(@PathVariable Long id) {
+        return linkService.getAllLinks(id);
     }
 
     @PostMapping

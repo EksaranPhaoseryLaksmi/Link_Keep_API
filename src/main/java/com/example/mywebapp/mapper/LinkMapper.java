@@ -6,7 +6,7 @@ import java.util.List;
 
 @Mapper
 public interface LinkMapper {
-    List<Link> findAll();
+    List<Link> findAll(long id);
     void insert(LinkRequest request);
     void update(LinkUpdate request);
 }

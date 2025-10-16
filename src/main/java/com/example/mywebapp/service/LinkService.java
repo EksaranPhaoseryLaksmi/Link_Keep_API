@@ -16,8 +16,8 @@ public class LinkService {
         this.linkMapper = linkMapper;
     }
 
-    public List<Link> getAllLinks() {
-        return linkMapper.findAll();
+    public List<Link> getAllLinks(long id) {
+        return linkMapper.findAll(id);
     }
 
     public void addLink(LinkRequest request){

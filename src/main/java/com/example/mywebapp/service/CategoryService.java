@@ -17,8 +17,8 @@ public class CategoryService {
         this.categoryMapper = categoryMapper;
     }
 
-    public List<Category> getAllTeams() {
-        return categoryMapper.findAll();
+    public List<Category> getAllTeams(Long id) {
+        return categoryMapper.findAll(id);
     }
 
     public void addCategory(CategoryRequest request){
