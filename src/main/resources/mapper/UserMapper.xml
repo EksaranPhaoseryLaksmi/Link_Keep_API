@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.mywebapp.mapper.UserMapper">
     <select id="findByUsername" resultType="com.example.mywebapp.entity.User">
-        SELECT usr.id,usr.name,usr.email as username,usr.password,usr.team_id FROM link_keep.users usr
+        SELECT usr.id,usr.name,usr.email as username,usr.email,usr.password,usr.team_id,usr.email_verified_at,usr.remember_token FROM link_keep.users usr
         WHERE email = #{name};
     </select>
     <update id="updatePassword">
@@ -15,11 +15,34 @@
     </update>
     <insert id="insertUser">
         INSERT INTO link_keep.users
-        (name,email,password,team_id)
+        (name,email,password,team_id,verified,remember_token)
         VALUES
         (#{name},
         #{username},
         #{password},
-        #{team_id});
+        #{team_id},
+        #{verified},
+        #{remember_token});
     </insert>
+    <select id="findByRememberToken" resultType="com.example.mywebapp.entity.User">
+        SELECT * FROM link_keep.users WHERE remember_token = #{token}
+    </select>
+
+    <update id="verifyUser">
+        UPDATE link_keep.users
+        SET verified = TRUE,
+        email_verified_at = NOW(),
+        remember_token = NULL
+        WHERE remember_token = #{token}
+    </update>
+    <select id="findByEmail" parameterType="string" resultType="com.example.mywebapp.entity.User">
+        SELECT * FROM link_keep.users WHERE email = #{email}
+    </select>
+
+    <update id="updateRememberTokenByEmail">
+        UPDATE link_keep.users
+        SET remember_token = #{token}
+        WHERE email = #{email}
+    </update>
+
 </mapper>
