@@ -6,6 +6,8 @@ import com.example.mywebapp.entity.UserRequest;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.time.LocalDateTime;
+
 @Mapper
 public interface UserMapper {
     User findByUsername(String username);
@@ -14,5 +16,5 @@ public interface UserMapper {
     User findByRememberToken(@Param("token") String token);
     void verifyUser(@Param("token") String token);
     User findByEmail(@Param("email") String email);
-    void updateRememberTokenByEmail(@Param("email") String email, @Param("token") String token);
+    void updateRememberTokenByEmail(@Param("email") String email, @Param("token") String token,@Param("createdAt") LocalDateTime createdAt);
 }

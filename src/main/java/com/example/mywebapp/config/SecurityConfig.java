@@ -20,8 +20,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.io.IOException;
 import java.util.List;
@@ -34,10 +32,11 @@ public class SecurityConfig {
     public SecurityConfig(JwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
     }
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("*"); // Replace with specific origin for production
+        config.addAllowedOrigin("*"); // Allow all origins (change in production)
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.setAllowCredentials(true);
@@ -46,11 +45,19 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", config);
         return source;
     }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
+        http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(
+                                "/api/auth/**",
+                                "/reset-password.html",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -81,23 +88,24 @@ public class SecurityConfig {
                 String token = authHeader.substring(7);
                 if (jwtUtil.isTokenValid(token)) {
                     String username = jwtUtil.extractUsername(token);
-
-                    // You can replace this with loading actual user roles from DB or token claims
                     UsernamePasswordAuthenticationToken authenticationToken =
                             new UsernamePasswordAuthenticationToken(
                                     username,
                                     null,
-                                    List.of(new SimpleGrantedAuthority("ROLE_USER")) // assign default ROLE_USER authority
+                                    List.of(new SimpleGrantedAuthority("ROLE_USER"))
                             );
-
-                    // Set authenticated user in SecurityContext
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 } else {
                     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                     return;
                 }
-            } else if (!request.getRequestURI().startsWith("/api/auth")) {
-                // No token and not hitting auth endpoints - reject
+            } else if (
+                    !request.getRequestURI().startsWith("/api/auth")
+                            && !request.getRequestURI().endsWith(".html")
+                            && !request.getRequestURI().startsWith("/css")
+                            && !request.getRequestURI().startsWith("/js")
+                            && !request.getRequestURI().startsWith("/images")
+            ) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 return;
             }

@@ -13,6 +13,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.web.bind.annotation.*;
@@ -129,6 +131,33 @@ public class AuthController {
         return Map.of("message", "Email verified successfully. You can now log in.");
     }
 
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestBody Map<String, String> body) {
+        String token = body.get("token");
+        String newPassword = body.get("newPassword");
+
+        User user = userMapper.findByRememberToken(token);
+        if (user == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "Invalid or expired token."));
+        }
+
+        // Check expiration (e.g., 30 minutes)
+        if (user.getReset_token_created_at().plusMinutes(30).isBefore(LocalDateTime.now())) {
+            return ResponseEntity.badRequest().body(Map.of("error", "Token has expired."));
+        }
+
+        // Update password
+        String hashedNewPwd = passwordEncoder.encode(newPassword);
+        user.setPassword(hashedNewPwd);
+        userMapper.updatePassword(user);
+
+        // Invalidate token
+        userMapper.updateRememberTokenByEmail(user.getEmail(), null, null);
+
+        return ResponseEntity.ok(Map.of("message", "Password has been reset successfully."));
+    }
+
+
     @PostMapping("/resend-verification")
     public ResponseEntity<?> resendVerification(@RequestBody Map<String, String> request) {
         String email = request.get("email");
@@ -144,14 +173,37 @@ public class AuthController {
 
         // Generate new token
         String token = UUID.randomUUID().toString();
-        userMapper.updateRememberTokenByEmail(email, token);
+        userMapper.updateRememberTokenByEmail(email, token,LocalDateTime.now());
 
         // Send email
-        String verificationLink = "http://localhost:8080/api/auth/verify?token=" + "/api/verify?token=" + token;
+        String verificationLink = "http://localhost:8080/api/auth" + "/api/verify?token=" + token;
         sendReVerificationEmail(email, verificationLink);
 
         return ResponseEntity.ok(Map.of("message", "Verification email resent. Please check your inbox."));
     }
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<?> resetPasswordVerification(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        User user = userMapper.findByEmail(email);
+
+        if (user == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "No account found with that email."));
+        }
+        if (user.getReset_token_created_at() != null &&
+                user.getReset_token_created_at().plusMinutes(5).isAfter(LocalDateTime.now())) {
+            return ResponseEntity.badRequest().body(Map.of("error", "You can only request a reset once every 5 minutes."));
+        }
+        String token = UUID.randomUUID().toString();
+        userMapper.updateRememberTokenByEmail(email, token, LocalDateTime.now());
+
+        //String resetPasswordLink = "http://localhost:8080/api/auth/reset-password?token=" + token;
+        String resetPasswordLink ="http://localhost:8080/reset-password.html?token=" + token;
+        sendResetPasswordEmail(email, resetPasswordLink);
+
+        return ResponseEntity.ok(Map.of("message", "Reset Password email sent. Please check your inbox."));
+    }
+
 
     public void sendReVerificationEmail(String toEmail, String verificationLink) {
         try {
@@ -166,6 +218,21 @@ public class AuthController {
             System.err.println("❌ Failed to send email: " + e.getMessage());
         }
     }
+
+    public void sendResetPasswordEmail(String toEmail, String resetPasswordLink) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(toEmail);
+            message.setSubject("Reset Password for Your Account");
+            message.setText("Hello,\n\nPlease verify your email and reset password by clicking the link below:\n"
+                    + resetPasswordLink + "\n\nThank you!");
+            mailSender.send(message);
+            System.out.println("✅ Reset Password email sent successfully to " + toEmail);
+        } catch (Exception e) {
+            System.err.println("❌ Failed to send email: " + e.getMessage());
+        }
+    }
+
     @PostMapping("/test-mail")
     public void sendTestEmail() {
         SimpleMailMessage message = new SimpleMailMessage();
