@@ -27,6 +27,12 @@
     <select id="findByRememberToken" resultType="com.example.mywebapp.entity.User">
         SELECT * FROM link_keep.users WHERE remember_token = #{token}
     </select>
+    <update id="updateResetToken">
+        UPDATE link_keep.users
+        SET reset_token = #{token},
+        reset_token_created_at=#{createdAt}
+        WHERE email = #{username}
+    </update>
 
     <update id="verifyUser">
         UPDATE link_keep.users
@@ -41,7 +47,7 @@
 
     <update id="updateRememberTokenByEmail">
         UPDATE link_keep.users
-        SET remember_token = #{token}
+        SET remember_token = #{token},reset_token_created_at=#{createdAt}
         WHERE email = #{email}
     </update>
 
