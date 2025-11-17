@@ -8,14 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mywebapp" />
+        <module name="linkkeppapp" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="linkkeppapp" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="linkkeppapp" options="-parameters" />
       <module name="mywebapp" options="-parameters" />
     </option>
   </component>
