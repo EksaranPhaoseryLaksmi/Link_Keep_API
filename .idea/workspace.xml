@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2616b8ef-b80b-4559-9c3f-cfc00dac964b" name="Changes" comment="Update forget password and reset password API">
+    <list default="true" id="2616b8ef-b80b-4559-9c3f-cfc00dac964b" name="Changes" comment="Update docker file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/linkkeppapp-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/linkkeppapp-0.0.1-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,21 +24,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "EksaranPhaoseryLaksmi"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EksaranPhaoseryLaksmi&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="74fc94ed-9668-4702-b716-2c2cc64ab574" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/EksaranPhaoseryLaksmi/Link_Keep_API.git",
-    "accountId": "74fc94ed-9668-4702-b716-2c2cc64ab574"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/EksaranPhaoseryLaksmi/Link_Keep_API.git&quot;,
+    &quot;accountId&quot;: &quot;74fc94ed-9668-4702-b716-2c2cc64ab574&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -235,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761501832941</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update docker file">
+      <option name="closed" value="true" />
+      <created>1763398340896</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1763398340896</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +269,8 @@
     <MESSAGE value="Update resend mail or verified mail when signup" />
     <MESSAGE value="Update user api" />
     <MESSAGE value="Update forget password and reset password API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update forget password and reset password API" />
+    <MESSAGE value="Update docker file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update docker file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
