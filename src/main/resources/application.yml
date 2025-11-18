@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://crossover.proxy.rlwy.net:23617/railway?ssl-mode=REQUIRED&allowPublicKeyRetrieval=true&useSSL=true
+    url: jdbc:mysql://crossover.proxy.rlwy.net:23617/railway?sslMode=DISABLED&allowPublicKeyRetrieval=true&autoReconnect=true
     username: root
     password: IJRFHiyTaYXpvUIvqBuWzgFFifwoCtzm
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,11 +13,12 @@ spring:
       validation-timeout: 5000
       maximum-pool-size: 5
       initialization-fail-timeout: -1
+
   mail:
     host: smtp.gmail.com
     port: 587
     username: darabuntha1996@gmail.com
-    password: elucvgpundjloevn   # <-- this must be your 16-character App Password
+    password: elucvgpundjloevn
     properties:
       mail:
         smtp:
@@ -30,7 +31,7 @@ spring:
 
 app:
   base:
-    url:https://link-keep-api.onrender.com
+    url: https://link-keep-api.onrender.com
 
 mybatis:
   type-aliases-package: com.example.mywebapp.entity
